@@ -7,11 +7,13 @@ name = "pypi"
 flask = "*"
 flask-cors = "*"
 sqlalchemy = "*"
+gunicorn = "*"
 
 [dev-packages]
 
 [scripts] 
 dev = "bash -c \"export FLASK_ENV='devvelopment' && flask run\""
+start = "gunicorn app:app"
 
 [requires]
 python_version = "3.10"
