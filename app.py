@@ -24,10 +24,6 @@ froggies = [
 ]
 
 @app.route("/")
-def welcome():
-    return "Welcome to the world of frogs"
-
-@app.route("/home")
 def home():
     return render_template('home.html', froggies=froggies)
 
