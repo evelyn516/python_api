@@ -29,15 +29,15 @@ def welcome():
 
 @app.route("/home")
 def home():
-    return render_template('home.html' froggies=froggies)
+    return render_template('home.html', froggies=froggies)
 
 @app.route("/about")
 def about():
-    return render_template('about.html' title='About')
+    return render_template('about.html', title='About')
 
 @app.route("/contact")
 def contact():
-    return render_template('contact.html')
+    return render_template('contact.html', title='Contact')
 
 
 @app.route('/frogs', method=['GET', 'POST'])
