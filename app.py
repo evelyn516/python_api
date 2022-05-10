@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, flash
+from flask import Flask, render_template, redirect, url_for, request, jsonify, flash
 
 
 app = Flask(__name__)
@@ -27,9 +27,6 @@ froggies = [
     }
 ]
 
-@app.route("/")
-def home():
-    return render_template('home.html', frogs=froggies)
 
 @app.route("/about")
 def about():
@@ -40,14 +37,8 @@ def contact():
     return render_template('contact.html', title='Contact')
 
 
-# experimental route
-@app.route("/<dude>")
-def user(dude):
-    return render_template(f'frog_user.html', title={dude})
-
-
-@app.route('/frogs', methods=['GET', 'POST'])
-def frogs():
+@app.route('/', methods=['GET', 'POST'])
+def home():
     if request.method == 'POST':
         flash('New froggo added!')
         
@@ -60,22 +51,28 @@ def frogs():
         "type": new_type
         }
 
+        print(new_frog)
         froggies.append(new_frog)
         
-        return render_template(f'frog_user.html', title={new_name})
+        return redirect(url_for("user", dude=new_name))
     else:
         return render_template('home.html', frogs=froggies)
+        
+
+@app.route("/<dude>")
+def user(dude):
+    return render_template(f'frog_user.html', title={dude}, name={dude})
+
 
 @app.errorhandler(400)
 def bad_request():
-    return make_response("Oopsie-Daisy that's a Bad Request (err 404)")
+    return "Oopsie-Daisy that's a Bad Request (err 404)"
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
 
-    app.debug = True
-    app.run()
+    app.run(debug = True)
 
 
 
