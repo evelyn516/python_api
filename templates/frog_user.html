@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>WELCOME {{new_frog}}</h1>
+    <img id='frog' src="https://i.pinimg.com/originals/f1/a7/83/f1a78335504d839fdadb8361c686147e.jpg" alt="frog party elegant">
+    <img id='frog' src="https://i.pinimg.com/originals/77/2f/92/772f92f0c6863a893bd815bb0c8f5b1d.jpg" alt="frog party messy">
+    <div id="the_guys">
+        {% for frog in frogs %}
+            <h3>{{ frog.name }} is a {{ frog.type }}</h3>
+        {% endfor %}
+    </div>
+{% endblock content %}
