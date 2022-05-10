@@ -39,3 +39,10 @@ input{
 ::placeholder{
     font-size: 10px;
 }
+
+#frog{
+    margin: 20px auto;
+    height: 400px;
+    width: 90%;
+
+}
