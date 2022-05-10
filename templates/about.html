@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/x-icon" href="https://image.pngaaa.com/91/4448091-middle.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title %}
-        <title>Frogs - {{title}}</title>
-    {% else %}
-        <title>Frog Home</title>
-    {% endif %} 
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
     <h1>ABOUT FROGS</h1>
     <h2>Frogs are very private amphibians</h2>
     <img id='shh' src="https://image.shutterstock.com/image-vector/shhh-sign-vector-260nw-174129806.jpg" alt="shh">
-    <p>...or they will teach you to sleep with the fishes</p>
-</body>
-</html>
+{% endblock content %}

@@ -40,12 +40,12 @@ def contact():
     return render_template('contact.html', title='Contact')
 
 
-@app.route('/frogs', method=['GET', 'POST'])
+""" @app.route('/frogs', method=['GET', 'POST'])
 def frog():
     if request.method == 'GET':
         return jsonify(froggies)
     if request.method == 'POST':
-        return f"{frog['name']} has joined the party"
+        return f"{frog['name']} has joined the party" """
 
 
 if __name__ == '__main__':
