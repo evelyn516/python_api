@@ -17,6 +17,11 @@
     {% endif %} 
 </head>
 <body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">contact</a>
+    </nav>
     {% block content %}{% endblock %}
 </body>
 </html>
