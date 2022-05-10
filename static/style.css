@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Lato&family=Lobster&family=Poppins:wght@300;400;500;600&family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+
+body {
+    width: 800px;
+    margin: auto;
+    text-align: center;
+}
+nav{
+    margin: 25px;
+}
+
+nav a{
+    margin: 20px;
+    padding: 10px;
+    margin: 0 30px;
+}
+
+nav a:hover{
+    color: blue;
+    font-size: 24px;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 20px;
+}
+
+input{
+    padding: 20px;
+    border-radius: 25px;
+}
+
+::placeholder{
+    font-size: 10px;
+}

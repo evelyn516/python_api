@@ -45,23 +45,23 @@ def contact():
 def user(dude):
     return render_template(f'frog_user.html', title={dude})
 
-@app.route('/frogs', methods=['GET', 'POST'])
-def frogs():
-    if request.method == 'GET':
-        return jsonify({"frogs" : froggies})
-    if request.method == 'POST':
-        flash('New froggo added!')
-        new_frog = {
-        "id": len(froggies),
-        "name": request.form["name"],
-        "type": request.form["type"]
-        }
+# @app.route('/frogs', methods=['GET', 'POST'])
+# def frogs():
+#     if request.method == 'GET':
+#         return jsonify({"frogs" : froggies})
+#     if request.method == 'POST':
+#         flash('New froggo added!')
+#         new_frog = {
+#         "id": len(froggies),
+#         "name": request.form["name"],
+#         "type": request.form["type"]
+#         }
 
-        froggies.append(new_frog)
+#         froggies.append(new_frog)
         
-        return jsonify({'frog': new_frog})
-    else:
-        return render_template('home.html', frogs=froggies)
+#         return jsonify({'frog': new_frog})
+#     else:
+#         return render_template('home.html', frogs=froggies)
         
 
 # @app.route('/anime', methods=['GET', 'POST'])
@@ -105,7 +105,6 @@ if __name__ == '__main__':
 
     app.debug = True
     app.run()
-
 
 
 
