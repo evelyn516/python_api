@@ -1,5 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, request, jsonify, flash
 
+from logging import FileHandler,WARNING
+app = Flask(__name__, template_folder = 'template')
+
+file_handler = FileHandler('errorlog.txt')
+file_handler.setLevel(WARNING)
+
 
 app = Flask(__name__)
 
@@ -37,10 +43,10 @@ def contact():
     return render_template('contact.html', title='Contact')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/',methods=['GET','POST'])
 def home():
     if request.method == 'POST':
-        flash('New froggo added!')
+        # flash('New froggo added!')
         
         new_name = request.form["nome"],
         new_type = request.form["tipo"]
@@ -57,6 +63,7 @@ def home():
         return redirect(url_for("user", dude=new_name))
     else:
         return render_template('home.html', frogs=froggies)
+       
         
 
 @app.route("/<dude>")
@@ -69,10 +76,10 @@ def bad_request():
     return "Oopsie-Daisy that's a Bad Request (err 404)"
 
 if __name__ == '__main__':
-    app.secret_key = 'super secret key'
+    app.config['SECRET_KEY'] = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
-
     app.run(debug = True)
+    app.run()
 
 
 
